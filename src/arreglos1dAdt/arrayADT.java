@@ -1,4 +1,4 @@
-package arreglos1D;
+package arreglos1dAdt;
 
 public class arrayADT<T> {
     private  int tamanio;

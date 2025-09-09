@@ -12,5 +12,7 @@ public class main_t01Array2dAdt {
         b1.longitudColumnas();
         b1.imprimir();
         System.out.println("2 pug loqueando wasaa");
+        b1.longitudColumnas();
+        b1.longitudFilas();
     }
 }

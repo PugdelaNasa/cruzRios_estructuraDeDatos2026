@@ -31,12 +31,12 @@ public class t01Array2dAdt <T> {
 
     public int longitudFilas(){
         System.out.println("Longitud filas "+datos.length);
-        return datos.length;
+        return this.filas;
     }
 
     public int longitudColumnas(){
         System.out.println("Longitud columnas "+ datos[0].length);
-        return datos[0].length;
+        return this.columnas;
     }
 
     public void limpiar(T dato){

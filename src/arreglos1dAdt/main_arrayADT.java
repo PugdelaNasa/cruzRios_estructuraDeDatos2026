@@ -1,4 +1,4 @@
-package arreglos1D;
+package arreglos1dAdt;
 
 public class main_arrayADT {
     public static void main(String[] args) {
