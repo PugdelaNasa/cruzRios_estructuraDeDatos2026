@@ -3,7 +3,7 @@ package juegoDeLaVidaArray2dAdt;
 public class main_juegoDeLaVida {
     public static void main(String[] args) {
         juegoDeLaVida <Integer> d1 = new juegoDeLaVida(9,9);
-        d1.limpiar(0);
+        d1.limpiar(1);
 
         d1.establecerElemento(1,0,0);
         d1.establecerElemento(0,0,1);

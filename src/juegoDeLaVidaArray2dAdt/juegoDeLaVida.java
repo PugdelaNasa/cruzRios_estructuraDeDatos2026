@@ -64,7 +64,7 @@ public class juegoDeLaVida <T>{
             for(int j=0;j < datos[0].length;j++){
                 if(datos[i][j]==(Integer)1){
                     celulasVivas++;
-                    celulasMuertas =celulasVivas-(filas*columnas);
+                    celulasMuertas =Math.abs(celulasVivas-(filas*columnas));
                 }
             }
         }
@@ -91,6 +91,7 @@ public class juegoDeLaVida <T>{
         return vecinosVivos;
     }
 
+    //
     public void generaciones(int numeroGeneraciones){
         for(int contador= 1;contador <=numeroGeneraciones; contador++){
 
