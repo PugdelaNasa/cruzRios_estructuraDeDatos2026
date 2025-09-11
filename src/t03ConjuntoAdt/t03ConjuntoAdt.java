@@ -39,19 +39,52 @@ public class t03ConjuntoAdt <T> {
             elementos = copia; // reemplazar el arreglo viejo
             tamanio++;
         }else {
-            System.out.println("El elemento ya existe");
+            //System.out.println("El elemento ya existe");
         }
     }
 
     public void Eliminar(T elemento) {
-        for (int i = 0; i < tamanio; i++) {
-            if (elementos[i] == elemento) {
-                elementos[i] = elementos[tamanio - 1];
-                tamanio--;
-                break;
+        if (contiene(elemento)) {
+            T[] copia = (T[]) new Object[tamanio - 1];
+            int indexCopia = 0;
+            for (int i = 0; i < tamanio; i++) {
+                if ((elementos[i] != elemento)) {
+                    copia[indexCopia] = elementos[i];
+                    indexCopia++;
+                } else {
+                    //No pasa nada,el index copia no modifica su valor
+                }
+            }
+            elementos = copia;
+            tamanio--;
+        } else {
+            System.out.println("El elemento no existe");
+        }
+    }
+
+    public t03ConjuntoAdt<T> Union(t03ConjuntoAdt<T> otro) {
+        t03ConjuntoAdt<T> ayudanteUnion = new t03ConjuntoAdt<T>();
+        for (int i = 0; i < this.tamanio; i++) {
+            ayudanteUnion.Agregar(this.elementos[i]);
+        }
+        for (int i = 0; i < otro.tamanio; i++) {
+            ayudanteUnion.Agregar(otro.elementos[i]); // <-- corregido
+        }
+        return ayudanteUnion; // <-- sin recursión
+    }
+
+    public t03ConjuntoAdt<T> Interseccion(t03ConjuntoAdt<T> otra){
+        t03ConjuntoAdt<T> ayudanteInterseccion = new t03ConjuntoAdt<T>();
+        for (int i = 0; i < this.tamanio; i++) {
+            if (otra.contiene(this.elementos[i])) {
+                ayudanteInterseccion.Agregar(this.elementos[i]);
             }
         }
-        }
+        return ayudanteInterseccion;
+    }
+
+
+
 
 
 
