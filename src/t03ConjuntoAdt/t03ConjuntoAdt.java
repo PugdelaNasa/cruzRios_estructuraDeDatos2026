@@ -62,6 +62,27 @@ public class t03ConjuntoAdt <T> {
         }
     }
 
+    public boolean Equals (t03ConjuntoAdt<T> otra) {
+        if (!(otra.longitud() == this.longitud())){
+            return false;
+        }
+        for (int i = 0; i < this.tamanio; i++) {
+            if (!(otra.contiene(this.elementos[i]))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean esSubConjunto(t03ConjuntoAdt<T> otra) {
+        for (int i = 0; i < this.tamanio; i++) {
+            if (!(otra.contiene(this.elementos[i]))) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     public t03ConjuntoAdt<T> Union(t03ConjuntoAdt<T> otro) {
         t03ConjuntoAdt<T> ayudanteUnion = new t03ConjuntoAdt<T>();
         for (int i = 0; i < this.tamanio; i++) {
@@ -83,15 +104,15 @@ public class t03ConjuntoAdt <T> {
         return ayudanteInterseccion;
     }
 
-
-
-
-
-
-
-
-
-
+    public t03ConjuntoAdt<T> Diferencia(t03ConjuntoAdt<T> otra) {   //A-B
+        t03ConjuntoAdt<T> ayudanteDiferencia = new t03ConjuntoAdt<T>();
+        for (int i = 0; i < this.tamanio; i++) {
+            if (!(otra.contiene(this.elementos[i]))) {   //otra B   this A
+                ayudanteDiferencia.Agregar(this.elementos[i]);
+            }
+        }
+        return ayudanteDiferencia;
+    }
 
     //METODO EXTRA
     public void imprimir(){
@@ -100,7 +121,4 @@ public class t03ConjuntoAdt <T> {
         }
         System.out.println();
     }
-
-
-    }
-
+}
