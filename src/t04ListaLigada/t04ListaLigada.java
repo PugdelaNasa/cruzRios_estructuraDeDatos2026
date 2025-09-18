@@ -50,9 +50,8 @@ public class t04ListaLigada <T>{
     }
 
     public void eliminar_el_primero(){
-        head = head.getSiguiente();
-        size--;
-        System.out.println(size + " elementos");
+        head = head.getSiguiente().getSiguiente();
+
     }
 
     public void eliminar_el_ultimo(){

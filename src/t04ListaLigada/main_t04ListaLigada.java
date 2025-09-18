@@ -23,9 +23,6 @@ public class main_t04ListaLigada {
         beto.eliminar_el_primero();
         beto.transversal();
 
-        System.out.println("ELIMINAR EL ULTIMO");
-        beto.eliminar(0);
-        beto.transversal();
 
     }
 }
