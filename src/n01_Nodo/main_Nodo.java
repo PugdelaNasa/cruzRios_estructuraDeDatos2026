@@ -1,6 +1,6 @@
 package n01_Nodo;
 
-public class main_Nodo {
+public class main_Nodo <T>{
     public static void main(String[] args){
         Nodo<Integer> head = new Nodo<>(30);
         head.setSiguiente(new Nodo<>(50));
@@ -11,10 +11,12 @@ public class main_Nodo {
 
         //Pa imprimir un determinado
         System.out.println("Imprimiendo desde un head determinado");
-        System.out.println(head);
-        System.out.println(head.getSiguiente());
-        System.out.println(head.getSiguiente().getSiguiente());
-        System.out.println(head.getSiguiente().getSiguiente());
+        System.out.println(head); //30
+        System.out.println(head.getSiguiente()); //50
+        System.out.println(head.getSiguiente().getSiguiente());  //25
+        System.out.println(head.getSiguiente().getSiguiente().getSiguiente()); //17
+
+
 
 
         //Pa imprimir toda la lista completa

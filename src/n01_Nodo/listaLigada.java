@@ -23,8 +23,57 @@ public class listaLigada <T>{
                 currNode = currNode.getSiguiente();
             }
             currNode.setSiguiente(new Nodo<>(valor));
+            this.tamanio++;
         }
     }
+
+    public void agregar_al_final(T valor){
+        if(estaVacia()){
+            this.head = new Nodo<>(valor);
+            this.tamanio++;
+            return;
+        }
+        currNode = this.head;
+        while (currNode.getSiguiente() != null){
+            currNode = currNode.getSiguiente();
+        }
+        currNode.setSiguiente(new Nodo<>(valor));
+        this.tamanio++;
+    }
+
+    public void agregar_al_inicio(T valor){
+        Nodo<T> inicio = new Nodo<>(valor);
+        inicio.setSiguiente(head);
+        head = inicio;
+        this.tamanio++;
+    }
+
+    public void agregar_despues_de(T referencia,T valor){
+        currNode = head;
+        while (currNode.getSiguiente() != referencia){
+            currNode = currNode.getSiguiente();
+        }
+        currNode.setSiguiente(new Nodo<>(valor,currNode.getSiguiente()));
+        this.tamanio++;
+    }
+
+    public void eliminar(T posicion){
+
+    }
+
+    public void eliminar_el_ultimo(){
+
+    }
+
+    public void eliminar_el_primero(){
+
+    }
+
+
+
+
+
+
     //nota:el recast de datos no es proporcional al dado
     public int buscar(T valor){
         currNode = this.head;
@@ -54,7 +103,7 @@ public class listaLigada <T>{
     public void transversal(){
         currNode = this.head;
         while (currNode != null){
-            System.out.println(currNode.getData());
+            System.out.print(currNode.getData() + " -> " );
             currNode = currNode.getSiguiente();
         }
         System.out.println();
