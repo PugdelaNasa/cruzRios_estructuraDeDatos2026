@@ -13,7 +13,7 @@ public class main_listaLigada {
 
         l1.transversal();
         System.out.println(l1.tamanio);
-        l1.eliminar(5);
+        l1.eliminar(4);
         l1.transversal();
         System.out.println(l1.tamanio);
 

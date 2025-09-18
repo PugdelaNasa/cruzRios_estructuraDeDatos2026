@@ -75,33 +75,29 @@ public class listaLigada <T>{
         this.tamanio--;
     }
 
-    public void eliminar(T posicion){
-        if((Integer) posicion == 1){
-            eliminar_el_primero();
+    public void eliminar(int posicion) {
+        if (posicion < 0 || posicion >= this.tamanio) {
+            return; // posición inválida
         }
 
-        if((Integer) posicion > 1 && (Integer) posicion < this.tamanio){
-            int contador = 1;
-            currNode = head;   //siguiente
-            Nodo<T> naja = null; //anterior
-            while (contador < (Integer) posicion){
-                naja = currNode;
-                currNode = currNode.getSiguiente();
-                contador++;
-            }
-            System.out.println(naja.getData());
-            naja.setSiguiente(currNode.getSiguiente());
-            currNode.setSiguiente(null);
+        if (posicion == 0) {
+            eliminar_el_primero(); // ya lo tienes implementado
             this.tamanio--;
-        }
-        if((Integer) posicion == this.tamanio){
-            eliminar_el_ultimo();
+            return;
         }
 
+        Nodo<T> currNode = head;
+        // avanzar hasta el nodo anterior al que quieres eliminar
+        for (int i = 0; i < posicion - 1; i++) {
+            currNode = currNode.getSiguiente();
+        }
+        System.out.println(currNode.getData());
 
-
-
-
+        // "salta" el nodo que quieres eliminar
+        Nodo<T> nodoEliminar = currNode.getSiguiente();
+        System.out.println( nodoEliminar.getData());
+        currNode.setSiguiente(nodoEliminar.getSiguiente());
+        this.tamanio--;
     }
 
 
