@@ -57,15 +57,50 @@ public class listaLigada <T>{
         this.tamanio++;
     }
 
-    public void eliminar(T posicion){
 
-    }
 
     public void eliminar_el_ultimo(){
-
+        currNode = this.head;  //siguiente
+        Nodo<T> naja = null;  //anterior
+        while (currNode.getSiguiente() != null){
+            naja = currNode;
+            currNode = currNode.getSiguiente();
+        }
+        naja.setSiguiente(null);
+        this.tamanio--;
     }
 
     public void eliminar_el_primero(){
+        head = this.head.getSiguiente();
+        this.tamanio--;
+    }
+
+    public void eliminar(T posicion){
+        if((Integer) posicion == 1){
+            eliminar_el_primero();
+        }
+
+        if((Integer) posicion > 1 && (Integer) posicion < this.tamanio){
+            int contador = 1;
+            currNode = head;   //siguiente
+            Nodo<T> naja = null; //anterior
+            while (contador < (Integer) posicion){
+                naja = currNode;
+                currNode = currNode.getSiguiente();
+                contador++;
+            }
+            System.out.println(naja.getData());
+            naja.setSiguiente(currNode.getSiguiente());
+            currNode.setSiguiente(null);
+            this.tamanio--;
+        }
+        if((Integer) posicion == this.tamanio){
+            eliminar_el_ultimo();
+        }
+
+
+
+
 
     }
 

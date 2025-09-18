@@ -12,8 +12,10 @@ public class main_listaLigada {
 
 
         l1.transversal();
-        l1.eliminar(2);
+        System.out.println(l1.tamanio);
+        l1.eliminar(5);
         l1.transversal();
+        System.out.println(l1.tamanio);
 
 
 
