@@ -48,12 +48,24 @@ public class listaLigada <T>{
         this.tamanio++;
     }
 
-    public void agregar_despues_de(T referencia,T valor){
-        currNode = head;
-        while (currNode.getSiguiente() != referencia){
+    public void agregar_despues_de(T referencia, T valor) {
+        if (head == null) {
+            System.out.println("La lista está vacía, no se puede insertar después de " + referencia);
+            return;
+        }
+
+        Nodo<T> currNode = head;
+
+        while (currNode != null && !currNode.getData().equals(referencia)) {
             currNode = currNode.getSiguiente();
         }
-        currNode.setSiguiente(new Nodo<>(valor,currNode.getSiguiente()));
+
+        if (currNode == null) {
+            System.out.println("No se encontró el elemento " + referencia + " en la lista.");
+            return;
+        }
+
+        currNode.setSiguiente(new Nodo<>(valor, currNode.getSiguiente()));
         this.tamanio++;
     }
 
@@ -91,18 +103,12 @@ public class listaLigada <T>{
         for (int i = 0; i < posicion - 1; i++) {
             currNode = currNode.getSiguiente();
         }
-        System.out.println(currNode.getData());
 
         // "salta" el nodo que quieres eliminar
         Nodo<T> nodoEliminar = currNode.getSiguiente();
-        System.out.println( nodoEliminar.getData());
         currNode.setSiguiente(nodoEliminar.getSiguiente());
         this.tamanio--;
     }
-
-
-
-
 
 
     //nota:el recast de datos no es proporcional al dado
