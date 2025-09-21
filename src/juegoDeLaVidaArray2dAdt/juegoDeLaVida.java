@@ -114,7 +114,7 @@ public class juegoDeLaVida <T>{
             }
             datos = copia;
             System.out.println();
-            System.out.print("Generacion " + (contador) );
+            System.out.print("GENERACION " + (contador) );
             imprimir();
             celulas();
             System.out.println();
