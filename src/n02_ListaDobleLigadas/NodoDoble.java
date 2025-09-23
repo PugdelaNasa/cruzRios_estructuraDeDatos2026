@@ -5,8 +5,13 @@ public class NodoDoble<T> {
     NodoDoble<T> siguiente;
     NodoDoble<T> anterior;
 
-    public NodoDoble(T dato) {
+    public NodoDoble() {
     }
+
+    public NodoDoble(T dato) {
+        this.dato = dato;
+    }
+
 
     public NodoDoble(T dato, NodoDoble<T> siguiente, NodoDoble<T> anterior) {
         this.dato = dato;
