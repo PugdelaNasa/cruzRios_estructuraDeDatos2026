@@ -37,26 +37,67 @@ public class listaDobleLigadas <T>{
     }
 
     public void agregar_despues_de(T referencia ,T elemento){
-        NodoDoble<T> currNode;
-        NodoDoble<T> auxNode;
-        currNode = this.head;
-        auxNode = currNode.anterior;
-        while(currNode.getDato() != referencia ){
-            auxNode = currNode;
-            currNode = currNode.getSiguiente();
-        }
-        System.out.println(currNode.getDato());
-        System.out.println(auxNode.getDato());
+            NodoDoble<T> currNode;
+            currNode = this.head;
 
-        currNode.setAnterior(auxNode.getAnterior());
-        currNode.setSiguiente(new NodoDoble<>(elemento,currNode.getSiguiente(),auxNode));
-        auxNode.setSiguiente(currNode);
-        currNode.getSiguiente().setAnterior(currNode);
+            while(currNode.getDato() != referencia ){
 
+                currNode = currNode.getSiguiente();
+            }
+            System.out.println();
+            System.out.println(currNode.getDato());
+            System.out.println(currNode.getSiguiente().getDato());
+            currNode.setSiguiente(new NodoDoble<>(elemento,currNode.getSiguiente(),currNode));
+            System.out.println(currNode.getSiguiente().getDato());
 
-
-
+            currNode.getSiguiente().getSiguiente().setAnterior(currNode.getSiguiente());
+            this.tamanio++;
     }
+
+
+    public int obtener(int posicion){
+        if(posicion <= tamanio)
+        {
+            NodoDoble<T> currNode;
+            currNode = this.head;
+            int contador = 1;
+            while(contador != posicion){
+                currNode = currNode.getSiguiente();
+                contador++;
+            }
+            System.out.println();
+            System.out.println(currNode.getDato());
+            System.out.println(this.tamanio);
+            return 0;
+        }else{
+            return -1;
+        }
+    }
+
+    public void eliminar_el_primero(){
+        this.head = this.head.getSiguiente();
+    }
+
+
+
+    public void eliminar_el_ultimo(){
+        this.tail = this.tail.getAnterior();
+        this.tail.setSiguiente(null);
+    }
+
+
+    //CLASE PARA  PRUEBAS CONCRETASSSSS
+    public void pruebas(){
+        System.out.println(this.tail.getAnterior());
+    }
+
+
+
+
+
+
+
+
 
     public void transversal(int direccion){
         NodoDoble<T> currNode;
