@@ -23,7 +23,7 @@ public class main_listaDobleLigadas {
 
         System.out.println();
         System.out.println("PRUEBA 4");
-        l1.eliminar_el_ultimo();
+        l1.actualizar(20,21);
         l1.transversal(1);
 
 

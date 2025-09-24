@@ -76,6 +76,7 @@ public class listaDobleLigadas <T>{
 
     public void eliminar_el_primero(){
         this.head = this.head.getSiguiente();
+        this.tamanio--;
     }
 
 
@@ -83,7 +84,50 @@ public class listaDobleLigadas <T>{
     public void eliminar_el_ultimo(){
         this.tail = this.tail.getAnterior();
         this.tail.setSiguiente(null);
+        this.tamanio--;
     }
+
+    public void eliminar(int posicion){
+        if(posicion < 0 || posicion >= this.tamanio){
+            return;
+        }
+        if(posicion == 1){
+            this.head = this.head.getSiguiente();
+            this.tamanio--;
+        }else{
+            NodoDoble<T> currNode;
+            currNode = this.head;
+            for(int i = 1; i < posicion-1; i++){
+                currNode = currNode.getSiguiente();
+            }
+            NodoDoble<T> elimNode = currNode.getSiguiente();
+            currNode.setSiguiente(elimNode.getSiguiente());
+            currNode.getSiguiente().setAnterior(currNode);
+            this.tamanio--;
+        }
+    }
+
+    public int buscar(T valor){
+        NodoDoble<T> currNode;
+        currNode = this.head;
+        int lugar = 1;
+        while(currNode.getDato() != valor){
+            currNode = currNode.getSiguiente();
+            lugar++;
+        }
+        return lugar;
+    }
+
+    public void actualizar(T a_buscar, T valor){
+        NodoDoble<T> currNode;
+        currNode = this.head;
+        int posicion = (Integer) buscar(a_buscar);
+        for(int i = 1; i < posicion; i++){
+            currNode = currNode.getSiguiente();
+        }
+        currNode.setDato(valor);
+    }
+
 
 
     //CLASE PARA  PRUEBAS CONCRETASSSSS
