@@ -3,8 +3,8 @@ package t06_Colas;
 import n01_Nodo.Nodo;
 
 public class Cola <T>{
-    Cola<T> primerNodo;
-    Cola<T> ultimoNodo;
+    NodoCola<T> primerNodo;
+    NodoCola<T> ultimoNodo;
 
     public Cola() {
         primerNodo = null;
@@ -16,7 +16,7 @@ public class Cola <T>{
     }
 
     public void encolar (T valor) {
-        Cola<T> aux = new Cola<>(valor);
+        NodoCola<T> aux = new NodoCola<>( valor);
         if(estaVacia()){
             primerNodo = aux;
             ultimoNodo = primerNodo;
@@ -28,7 +28,7 @@ public class Cola <T>{
     }
 
     public T eliminar(){
-        if(estaVacia()  ){
+        if(estaVacia()){
             return null;
         }
         T var = primerNodo.getData();
@@ -41,7 +41,7 @@ public class Cola <T>{
     }
 
     public void imprimir(){
-        Cola<T> actual ;
+        NodoCola<T> actual ;
         actual = primerNodo;
 
         while(actual != null){

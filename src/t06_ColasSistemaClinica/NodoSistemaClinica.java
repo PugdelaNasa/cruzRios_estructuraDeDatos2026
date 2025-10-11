@@ -13,6 +13,12 @@ public class NodoSistemaClinica <T> {
         this.nombre = nombre;
     }
 
+    public NodoSistemaClinica(T nombre, T edad, T estatura){
+        this.nombre = nombre;
+        this.edad = edad;
+        this.estatura = estatura;
+    }
+
     public T getNombre() {
         return nombre;
     }
@@ -32,7 +38,9 @@ public class NodoSistemaClinica <T> {
     //METODO OVERRIDE
     @Override
     public String toString() {
-        return "|" + this.nombre + "|" + this.edad + "|" + this.estatura + "|";
+        return "ATENDIENDO -->  NOMBRE:" + this.nombre +
+                " /  EDAD:" + this.edad +
+                " /  ESTATURA:" + this.estatura;
     }
 }
 

@@ -14,44 +14,45 @@ public class SistemaClinica <T>{
     }
 
     public void registrarPaciente(T nombre,T edad ,T estatura) {
-        NodoSistemaClinica<T> aux = new NodoSistemaClinica(nombre);
+        NodoSistemaClinica<T> aux = new NodoSistemaClinica(nombre,edad,estatura);
         if (estaVacia()) {
-            primerPaciente = new NodoSistemaClinica(nombre);
+            primerPaciente = aux;
             ultimoPaciente = primerPaciente;
         }
         else {
             ultimoPaciente.setSiguiente(aux);
         }
         ultimoPaciente = aux;
+        System.out.println("PACIENTE: " +ultimoPaciente.getNombre());
+        System.out.println("REGISTRADO CON EXITO");
+        System.out.println();
     }
 
-    public String eliminarPaciente() {
+    public void eliminarPaciente() {
         if (estaVacia()) {
-            return null;
+            return ;
         }
-        String info = primerPaciente.toString();
+        System.out.println(this.primerPaciente.toString());
         primerPaciente = primerPaciente.getSiguiente();
         if (estaVacia()) {
             ultimoPaciente = null;
         }
-        return info;
+        System.out.println();
     }
 
-    public void imprimirPaciente() {
+    public void imprimirColaPaciente() {
         NodoSistemaClinica<T> apoyo ;
         apoyo = primerPaciente;
         if (estaVacia()) {
             System.out.println("No hay paciente");
             return;
         }
-
+        System.out.println("ESTADO DE LA COLA");
         while (apoyo != null) {
-            System.out.println(apoyo + " --> ");
-            apoyo.setSiguiente(primerPaciente.getSiguiente());
-
+            System.out.println(apoyo.getNombre() + " --> ");
+            apoyo = apoyo.getSiguiente();
         }
-
-
+        System.out.println();
     }
 }
 
