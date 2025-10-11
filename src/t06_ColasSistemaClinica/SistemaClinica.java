@@ -11,6 +11,7 @@ public class SistemaClinica <T>{
 
     public boolean estaVacia() {
         return primerPaciente == null;
+
     }
 
     public void registrarPaciente(T nombre,T edad ,T estatura) {
@@ -28,7 +29,7 @@ public class SistemaClinica <T>{
         System.out.println();
     }
 
-    public void eliminarPaciente() {
+    public void atenderPaciente() {
         if (estaVacia()) {
             return ;
         }
