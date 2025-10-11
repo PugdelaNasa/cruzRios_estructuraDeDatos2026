@@ -25,6 +25,8 @@ public class main_listaDobleLigadas {
         System.out.println("PRUEBA 4");
         l1.actualizar(20,21);
         l1.transversal(1);
+        System.out.println();
+        l1.pruebas();
 
 
 

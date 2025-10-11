@@ -25,7 +25,7 @@ public class listaDobleLigadas <T>{
     }
 
     public void agregarAlFinal(T elemento){
-        if(this.tail == null){
+        if(this.tail == null){ 
             this.tail = new NodoDoble<>(elemento);
             this.head = this.tail;
             this.tamanio++;
@@ -132,7 +132,7 @@ public class listaDobleLigadas <T>{
 
     //CLASE PARA  PRUEBAS CONCRETASSSSS
     public void pruebas(){
-        System.out.println(this.tail.getAnterior());
+        System.out.println(this.tail);
     }
 
 
