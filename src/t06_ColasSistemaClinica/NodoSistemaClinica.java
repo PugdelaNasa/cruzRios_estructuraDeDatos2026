@@ -13,7 +13,7 @@ public class NodoSistemaClinica <T> {
         this.nombre = nombre;
     }
 
-    public NodoSistemaClinica(T nombre, T edad, T estatura){
+    public NodoSistemaClinica(T nombre, T edad, T estatura){   //la que se va a operar unicamente INGRESO DATOS
         this.nombre = nombre;
         this.edad = edad;
         this.estatura = estatura;
