@@ -1,8 +1,4 @@
-package t03ConjuntoAdt;
-
-import arreglos1dAdt.arrayADT;
-
-import java.sql.SQLOutput;
+package t04ConjuntoAdt;
 
 public class main_t03ConjuntoAdt {
     public static void main(String[] args) {

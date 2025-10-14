@@ -1,6 +1,4 @@
-package t03ConjuntoAdt;
-
-import java.sql.SQLOutput;
+package t04ConjuntoAdt;
 
 public class t03ConjuntoAdt <T> {
     private int tamanio = 0;
