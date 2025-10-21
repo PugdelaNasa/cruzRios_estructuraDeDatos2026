@@ -1,0 +1,23 @@
+package t07_BalanceoCodigo;
+
+import java.util.ArrayList;
+
+public class PilaBalanceo <T>{
+
+    public boolean verificarBalanceo(String mensaje){
+        PilaBalanceo<Character> cadena = new PilaBalanceo<>();
+        for (int i = 0; i < mensaje.length(); i++) {
+            char letra = mensaje.charAt(i);  // obtiene la letra en la posición i
+            if(letra == '0'){
+                cadena.push('0');
+            }else if(letra == '1'){
+                cadena.pop();
+            }
+        }
+        if(cadena.isEmpty()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+}
